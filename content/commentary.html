@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRCP Commentary — Annotated Bibliography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root,[data-theme="light"]{
+  --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
+  --color-surface-offset:#f3f0ec;--color-divider:#dcd9d5;--color-border:#d4d1ca;
+  --color-text:#28251d;--color-text-muted:#7a7974;--color-text-faint:#bab9b4;
+  --color-primary:#01696f;--color-primary-hover:#0c4e54;--color-primary-active:#0f3638;
+  --color-primary-highlight:#cedcd8;--color-accent-warm:#7a3f2d;
+  --color-tag-bg:#e8f0ef;--color-tag-text:#01696f;
+  --color-rule-bg:#e6ede9;--color-case-bg:#fdf4ee;--color-case-border:#c9956a;
+  --shadow-sm:0 1px 3px oklch(0.2 0.01 80/0.07);
+  --shadow-md:0 4px 14px oklch(0.2 0.01 80/0.09);
+  --shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.13);
+  --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Source Sans 3','Helvetica Neue',sans-serif;
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
+  --content-narrow:640px;--content-default:900px;--content-wide:1200px;
+}
+[data-theme="dark"]{
+  --color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;
+  --color-surface-offset:#1d1c1a;--color-divider:#262523;--color-border:#393836;
+  --color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;
+  --color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-active:#1a626b;
+  --color-primary-highlight:#313b3b;--color-accent-warm:#c49075;
+  --color-tag-bg:#1e3030;--color-tag-text:#6bbec6;
+  --color-rule-bg:#1a2822;--color-case-bg:#2a2018;--color-case-border:#8a6040;
+  --shadow-sm:0 1px 3px oklch(0 0 0/0.25);
+  --shadow-md:0 4px 14px oklch(0 0 0/0.35);
+  --shadow-lg:0 12px 32px oklch(0 0 0/0.45);
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){
+  --color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;
+  --color-surface-offset:#1d1c1a;--color-divider:#262523;--color-border:#393836;
+  --color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;
+  --color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-active:#1a626b;
+  --color-primary-highlight:#313b3b;--color-accent-warm:#c49075;
+  --color-tag-bg:#1e3030;--color-tag-text:#6bbec6;
+  --color-rule-bg:#1a2822;--color-case-bg:#2a2018;--color-case-border:#8a6040;
+}}
+
+/* ── BASE ─────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  scroll-behavior:smooth;scroll-padding-top:5rem}
+body{min-height:100dvh;line-height:1.65;font-family:var(--font-body);
+  font-size:var(--text-base);color:var(--color-text);background:var(--color-bg)}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--color-primary);text-decoration-color:color-mix(in oklch,var(--color-primary) 40%,transparent);
+  text-underline-offset:3px;transition:color var(--transition),text-decoration-color var(--transition)}
+a:hover{color:var(--color-primary-hover);text-decoration-color:var(--color-primary-hover)}
+::selection{background:oklch(from var(--color-primary) l c h/0.2)}
+:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.2;font-family:var(--font-display)}
+p,li{text-wrap:pretty;max-width:72ch}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+
+/* ── LAYOUT ───────────────────────────────────────────────── */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in oklch,var(--color-bg) 92%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--color-divider);
+  padding:0.875rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.site-logo{display:flex;align-items:center;gap:0.625rem;text-decoration:none;color:var(--color-text)}
+.site-logo svg{flex-shrink:0}
+.site-logo-text{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--color-text)}
+.site-logo-sub{font-size:var(--text-xs);color:var(--color-text-muted);font-family:var(--font-body);font-weight:400}
+.header-right{display:flex;align-items:center;gap:0.75rem}
+.nav-links{display:flex;gap:1.25rem;list-style:none}
+.nav-links a{font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;
+  transition:color var(--transition)}
+.nav-links a:hover{color:var(--color-primary)}
+.theme-toggle{display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:var(--radius-full,9999px);
+  border:1px solid var(--color-border);color:var(--color-text-muted);
+  transition:background var(--transition),border-color var(--transition),color var(--transition)}
+.theme-toggle:hover{background:var(--color-surface-offset);color:var(--color-text)}
+
+.page-hero{
+  max-width:var(--content-default);margin-inline:auto;
+  padding:clamp(3rem,6vw,5rem) 1.5rem clamp(2rem,4vw,3rem);
+}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:var(--text-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--color-primary);margin-bottom:1rem}
+.hero-eyebrow svg{opacity:.7}
+.page-hero h1{font-size:var(--text-2xl);font-weight:700;
+  color:var(--color-text);margin-bottom:1rem;
+  font-style:italic}
+.page-hero .lead{font-size:var(--text-lg);color:var(--color-text-muted);
+  line-height:1.6;max-width:58ch;margin-bottom:1.75rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:0.35rem;
+  padding:0.3rem 0.75rem;border-radius:var(--radius-full,9999px);
+  background:var(--color-tag-bg);color:var(--color-tag-text);
+  font-size:var(--text-xs);font-weight:600;letter-spacing:.04em}
+
+.main-layout{
+  max-width:var(--content-wide);margin-inline:auto;
+  display:grid;grid-template-columns:260px 1fr;gap:0;
+  padding:0 0 6rem;
+  align-items:start;
+}
+@media(max-width:900px){.main-layout{grid-template-columns:1fr}}
+
+/* ── SIDEBAR / TOC ────────────────────────────────────────── */
+.sidebar{
+  position:sticky;top:5rem;height:calc(100vh - 5rem);overflow-y:auto;
+  padding:1.5rem 1.25rem 2rem;
+  border-right:1px solid var(--color-divider);
+  scrollbar-width:thin;scrollbar-color:var(--color-border) transparent;
+}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--color-border);border-radius:2px}
+.toc-title{font-size:var(--text-xs);font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--color-text-faint);margin-bottom:1rem;
+  padding-bottom:0.5rem;border-bottom:1px solid var(--color-divider)}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.1rem}
+.toc-list li a{
+  display:block;padding:0.4rem 0.6rem;border-radius:var(--radius-sm);
+  font-size:var(--text-xs);color:var(--color-text-muted);text-decoration:none;
+  transition:background var(--transition),color var(--transition);
+  line-height:1.35;
+}
+.toc-list li a:hover{background:var(--color-surface-offset);color:var(--color-text)}
+.toc-list li a.active{background:var(--color-primary-highlight);color:var(--color-primary);font-weight:600}
+.toc-list li.toc-part{margin-top:0.75rem}
+.toc-list li.toc-part>span{
+  display:block;padding:0.25rem 0.6rem;
+  font-size:calc(var(--text-xs) * 0.95);font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--color-text-faint)}
+@media(max-width:900px){.sidebar{display:none}}
+
+/* ── CONTENT AREA ─────────────────────────────────────────── */
+.content{padding:2rem 2.5rem 4rem;min-width:0}
+@media(max-width:900px){.content{padding:1.5rem 1.25rem 3rem}}
+
+/* ── SECTION HEADERS ──────────────────────────────────────── */
+.section-part{
+  margin-bottom:0.5rem;margin-top:3.5rem;
+  padding-bottom:1rem;border-bottom:2px solid var(--color-divider)
+}
+.section-part:first-child{margin-top:0}
+.section-part-number{
+  display:inline-block;
+  font-size:var(--text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--color-primary);margin-bottom:0.5rem}
+.section-part h2{font-size:var(--text-xl);font-weight:700;color:var(--color-text);
+  font-style:italic;margin-bottom:0.35rem}
+.section-part .part-desc{font-size:var(--text-sm);color:var(--color-text-muted);max-width:55ch}
+
+/* ── ENTRY CARD ───────────────────────────────────────────── */
+.entry{
+  background:var(--color-surface);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);
+  padding:1.5rem 1.75rem;
+  margin-bottom:1.25rem;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow var(--transition),border-color var(--transition);
+}
+.entry:hover{box-shadow:var(--shadow-md);border-color:color-mix(in oklch,var(--color-primary) 25%,var(--color-border))}
+.entry-number{
+  font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;
+  color:var(--color-text-faint);text-transform:uppercase;margin-bottom:0.5rem}
+.entry-title{
+  font-family:var(--font-display);font-size:calc(var(--text-base) * 1.07);
+  font-weight:600;color:var(--color-text);line-height:1.3;margin-bottom:0.2rem}
+.entry-title em{font-style:italic}
+.entry-citation{font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:1rem;line-height:1.5}
+.entry-citation a{color:var(--color-primary);word-break:break-all}
+.ssrn-note{display:inline-flex;align-items:center;gap:0.3rem;
+  font-size:var(--text-xs);color:var(--color-accent-warm);font-style:italic}
+.entry-extract{
+  background:var(--color-surface-2);border-left:3px solid var(--color-primary);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:0.875rem 1rem;margin-bottom:1rem;
+  font-size:var(--text-sm);font-style:italic;color:var(--color-text-muted);
+  line-height:1.65;
+}
+.entry-extract p::before{content:'\201C';font-family:var(--font-display);font-size:1.4em;
+  color:var(--color-primary);line-height:0;vertical-align:-0.25em;margin-right:0.15em}
+.entry-extract p::after{content:'\201D';font-family:var(--font-display);font-size:1.4em;
+  color:var(--color-primary);line-height:0;vertical-align:-0.25em;margin-left:0.1em}
+.entry-links-row{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:flex-start;margin-top:0.25rem}
+.link-group{display:flex;flex-direction:column;gap:0.3rem}
+.link-group-label{font-size:var(--text-xs);font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--color-text-faint);margin-bottom:0.1rem}
+
+/* ── PILLS ────────────────────────────────────────────────── */
+.pill{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  padding:0.25rem 0.65rem;border-radius:var(--radius-full,9999px);
+  font-size:var(--text-xs);font-weight:600;text-decoration:none;
+  transition:background var(--transition),color var(--transition),box-shadow var(--transition);
+  white-space:nowrap;
+}
+.pill-rule{background:var(--color-rule-bg);color:var(--color-primary)}
+.pill-rule:hover{background:var(--color-primary-highlight);color:var(--color-primary-hover);box-shadow:var(--shadow-sm)}
+.pill-case{background:var(--color-case-bg);color:var(--color-accent-warm);
+  border:1px solid color-mix(in oklch,var(--color-case-border) 35%,transparent)}
+.pill-case:hover{background:color-mix(in oklch,var(--color-case-bg) 80%,var(--color-case-border));
+  box-shadow:var(--shadow-sm)}
+.pill-pdf{background:var(--color-surface-offset);color:var(--color-text-muted);
+  border:1px solid var(--color-border)}
+.pill-pdf:hover{background:var(--color-divider);color:var(--color-text);box-shadow:var(--shadow-sm)}
+.pill svg{flex-shrink:0}
+
+/* ── SVG ICONS (inline) ───────────────────────────────────── */
+.icon-sm{width:13px;height:13px;display:inline-block;vertical-align:middle}
+.icon-xs{width:11px;height:11px;display:inline-block;vertical-align:middle}
+
+/* ── METHODOLOGY BOX ──────────────────────────────────────── */
+.methodology{
+  background:var(--color-surface-offset);border:1px solid var(--color-border);
+  border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:2.5rem;
+}
+.methodology h3{font-size:var(--text-sm);font-weight:700;color:var(--color-text);margin-bottom:0.5rem}
+.methodology p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6}
+.methodology ul{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:1.25rem;
+  margin-top:0.5rem;display:flex;flex-direction:column;gap:0.25rem}
+
+/* ── SCROLL TO TOP ────────────────────────────────────────── */
+.back-to-top{
+  position:fixed;bottom:2rem;right:2rem;z-index:50;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--color-primary);color:white;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-md);
+  opacity:0;pointer-events:none;
+  transition:opacity var(--transition),transform var(--transition);
+  border:none;cursor:pointer;
+}
+.back-to-top.visible{opacity:1;pointer-events:auto}
+.back-to-top:hover{transform:translateY(-2px);background:var(--color-primary-hover)}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media(max-width:600px){
+  .page-hero{padding:2rem 1rem 1.5rem}
+  .entry{padding:1.25rem 1rem}
+  .entry-links-row{gap:0.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="site-header">
+  <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/" target="_blank" rel="noopener noreferrer" class="site-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-label="FRCP Annotated Browser logo">
+      <rect width="28" height="28" rx="6" fill="var(--color-primary)" opacity=".12"/>
+      <rect x="5" y="6" width="12" height="2" rx="1" fill="var(--color-primary)"/>
+      <rect x="5" y="10" width="18" height="2" rx="1" fill="var(--color-primary)"/>
+      <rect x="5" y="14" width="15" height="2" rx="1" fill="var(--color-primary)"/>
+      <rect x="5" y="18" width="10" height="2" rx="1" fill="var(--color-primary)"/>
+      <circle cx="21" cy="6.5" r="4" fill="var(--color-primary)" opacity=".9"/>
+      <text x="21" y="9.5" text-anchor="middle" font-size="5.5" font-weight="700" fill="white" font-family="serif" style="font-style:italic">§</text>
+    </svg>
+    <span>
+      <span class="site-logo-text">FRCP Annotated Browser</span><br>
+      <span class="site-logo-sub">Commentary · Open-Access Bibliography</span>
+    </span>
+  </a>
+  <div class="header-right">
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="https://vagabondo73.github.io/frcp-annotated-browser/content/" target="_blank" rel="noopener noreferrer">Rules</a></li>
+        <li><a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html" target="_blank" rel="noopener noreferrer">Cases</a></li>
+        <li><a href="#" style="color:var(--color-primary);font-weight:600">Commentary</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<div class="page-hero">
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    Peer-Reviewed &amp; Legacy Scholarly Sources
+  </div>
+  <h1>Open-Access Commentary<br>on Federal Civil Procedure</h1>
+  <p class="lead">27 authoritative sources — law review articles, treatises, and government reports — organized by doctrinal topic and cross-linked to the FRCP rules and landmark cases they annotate.</p>
+  <div class="hero-meta">
+    <span class="hero-badge">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      27 Sources
+    </span>
+    <span class="hero-badge">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Free Full-Text
+    </span>
+    <span class="hero-badge">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      40 Landmark Cases Cross-Referenced
+    </span>
+    <span class="hero-badge">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      13 Doctrinal Sections
+    </span>
+  </div>
+</div>
+
+<!-- ── MAIN LAYOUT ─────────────────────────────────────────── -->
+<div class="main-layout">
+
+<!-- SIDEBAR TOC -->
+<nav class="sidebar" aria-label="Table of contents">
+  <div class="toc-title">Sections</div>
+  <ul class="toc-list">
+    <li class="toc-part"><span>Foundations</span></li>
+    <li><a href="#sec-frcp-history">I. FRCP History &amp; Structure</a></li>
+    <li><a href="#sec-pleading">II. Pleading Standards</a></li>
+    <li class="toc-part"><span>Jurisdiction</span></li>
+    <li><a href="#sec-personal-juris">III. Personal Jurisdiction</a></li>
+    <li><a href="#sec-smj">IV. Subject-Matter Jurisdiction</a></li>
+    <li><a href="#sec-erie">V. Erie Doctrine</a></li>
+    <li class="toc-part"><span>Procedure</span></li>
+    <li><a href="#sec-discovery">VI. Discovery &amp; Proportionality</a></li>
+    <li><a href="#sec-case-mgmt">VII. Case Management</a></li>
+    <li><a href="#sec-sj">VIII. Summary Judgment</a></li>
+    <li class="toc-part"><span>Trial &amp; Post-Trial</span></li>
+    <li><a href="#sec-jury">IX. Jury Trial Rights</a></li>
+    <li><a href="#sec-class">X. Class Actions</a></li>
+    <li><a href="#sec-preclusion">XI. Preclusion</a></li>
+    <li class="toc-part"><span>Access &amp; Constitutionality</span></li>
+    <li><a href="#sec-access">XII. Access to Courts</a></li>
+    <li><a href="#sec-constitutionality">XIII. Constitutionality of Procedure</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<main class="content" id="main">
+
+<div class="methodology">
+  <h3>Selection Methodology</h3>
+  <p>All sources are freely accessible open-access texts (no paywall, or free registration only). Priority was given to: (1) peer-reviewed law review articles in top-25 journals; (2) legacy academic treatises and government reports; (3) sources with substantive engagement with the landmark cases in the FRCP Annotated Browser. Four SSRN-hosted items require a free SSRN account to download the PDF.</p>
+  <ul>
+    <li>Rule links → <strong>FRCP Annotated Browser</strong> provision page</li>
+    <li>Case links → <strong>FRCP Annotated Browser</strong> landmark cases page</li>
+    <li>Source links → verified open-access full text (April 2026)</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION I — FRCP HISTORY & STRUCTURE
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-frcp-history">
+  <div class="section-part-number">Section I · Modules 1–5, 13–17</div>
+  <h2>FRCP History &amp; Structure</h2>
+  <p class="part-desc">Origins of the 1938 Rules, the rulemaking process, and the foundational architecture of federal civil procedure.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 1</div>
+  <div class="entry-title">Stephen N. Subrin, <em>How Equity Conquered Common Law: The Federal Rules of Civil Procedure in Historical Perspective</em></div>
+  <div class="entry-citation">135 <em>U. Pa. L. Rev.</em> 909 (1987) · <a href="https://scholarship.law.upenn.edu/penn_law_review/vol135/iss4/2/" target="_blank" rel="noopener noreferrer">scholarship.law.upenn.edu</a></div>
+  <blockquote class="entry-extract"><p>The 1938 Federal Rules of Civil Procedure represented the triumph of equity procedure over common law procedure. The Rules' drafters, led by Charles Clark, consciously chose the flexible, discretionary model of equity over the rigid, technical forms of the common law. This choice has had profound consequences for how we understand the purpose of procedure, the role of the judge, and the meaning of access to justice.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-1.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">
+          <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Rule 1</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-2072.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 2072 REA</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Related Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hanna" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hanna v. Plumer</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#shady-grove" target="_blank" rel="noopener noreferrer" class="pill pill-case">Shady Grove</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 2</div>
+  <div class="entry-title">Federal Judicial Center, <em>The Development of the Federal Rules of Civil Procedure: A Historical Overview</em></div>
+  <div class="entry-citation">FJC Historical Research (ongoing) · <a href="https://www.fjc.gov/history/work-courts/rules-federal-rules-civil-procedure" target="_blank" rel="noopener noreferrer">fjc.gov</a></div>
+  <blockquote class="entry-extract"><p>The Federal Rules of Civil Procedure, which became effective September 16, 1938, were the product of a decades-long reform effort. Charles Clark of Yale Law School served as Reporter for the Advisory Committee, and the Rules he helped draft replaced the Conformity Act's hodgepodge of state procedures with a uniform, trans-substantive code designed to secure the just, speedy, and inexpensive determination of every action.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-1.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 1</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-2072.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 2072 REA</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION II — PLEADING STANDARDS
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-pleading">
+  <div class="section-part-number">Section II · Modules 14–17</div>
+  <h2>Pleading Standards</h2>
+  <p class="part-desc">The Conley → Twombly → Iqbal arc and comparative critiques of the plausibility regime.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 3</div>
+  <div class="entry-title">Arthur R. Miller, <em>From Conley to Twombly to Iqbal: A Double Play on the Federal Rules of Civil Procedure</em></div>
+  <div class="entry-citation">60 <em>Duke L.J.</em> 1 (2010) · <a href="https://scholarship.law.duke.edu/dlj/vol60/iss1/1/" target="_blank" rel="noopener noreferrer">scholarship.law.duke.edu</a></div>
+  <blockquote class="entry-extract"><p>Iqbal and Twombly represent a fundamental change in American pleading doctrine. For fifty years after Conley v. Gibson, it was understood that Rule 8(a)(2) required only notice — a short and plain statement. The Court in Twombly and Iqbal effectively rewrote the Rule without the notice-and-comment rulemaking process required by the Rules Enabling Act, imposing a plausibility threshold that has systematically disadvantaged claimants, particularly in civil rights cases.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-8.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 8(a)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-12.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 12(b)(6)</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#conley" target="_blank" rel="noopener noreferrer" class="pill pill-case">Conley v. Gibson</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#twombly" target="_blank" rel="noopener noreferrer" class="pill pill-case">Twombly</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#iqbal" target="_blank" rel="noopener noreferrer" class="pill pill-case">Iqbal</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#leatherman" target="_blank" rel="noopener noreferrer" class="pill pill-case">Leatherman</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#swierkiewicz" target="_blank" rel="noopener noreferrer" class="pill pill-case">Swierkiewicz</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 4</div>
+  <div class="entry-title">Arthur R. Miller, <em>Simplified Pleading, Meaningful Days in Court, and Trials on the Merits: Reflections on the Deformation of Federal Procedure</em></div>
+  <div class="entry-citation">88 <em>N.Y.U. L. Rev.</em> 286 (2013) · <a href="https://www.nyulawreview.org/wp-content/uploads/2018/08/NYULawReview-88-1-Miller.pdf" target="_blank" rel="noopener noreferrer">nyulawreview.org (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The original trans-substantive aspiration of the Federal Rules — that the same procedural framework would apply to every civil dispute regardless of subject matter — has been distorted by the Supreme Court's recent decisions. Twombly and Iqbal, combined with the tightening of summary judgment practice after the 1986 trilogy, have created a procedure that systematically filters out certain categories of claims before any discovery can take place.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-8.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 8(a)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-56.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 56</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#twombly" target="_blank" rel="noopener noreferrer" class="pill pill-case">Twombly</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#iqbal" target="_blank" rel="noopener noreferrer" class="pill pill-case">Iqbal</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#celotex" target="_blank" rel="noopener noreferrer" class="pill pill-case">Celotex</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 5</div>
+  <div class="entry-title">Samuel Dodson, <em>New Pleading, New Discovery</em></div>
+  <div class="entry-citation">109 <em>Mich. L. Rev.</em> 53 (2010) · <a href="https://repository.law.umich.edu/mlr/vol109/iss1/2/" target="_blank" rel="noopener noreferrer">repository.law.umich.edu</a></div>
+  <blockquote class="entry-extract"><p>Twombly and Iqbal did not merely raise the pleading bar — they changed the relationship between pleading and discovery. By requiring plaintiffs to allege plausible facts before discovery, the Court has created a Catch-22: a plaintiff needs discovery to plead facts, but must plead facts to get discovery. This inversion of the traditional sequence is particularly consequential in complex antitrust and civil rights cases where the relevant facts are largely in the defendant's possession.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-8.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 8(a)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-26.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 26</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#twombly" target="_blank" rel="noopener noreferrer" class="pill pill-case">Twombly</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#iqbal" target="_blank" rel="noopener noreferrer" class="pill pill-case">Iqbal</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 6</div>
+  <div class="entry-title">James R. Maxeiner, <em>Pleading and Access to Civil Procedure: Historical and Comparative Reflections on Iqbal and a Proposed New Federal Rule</em></div>
+  <div class="entry-citation">114 <em>Penn St. L. Rev.</em> 1257 (2010) · <a href="https://www.pennstatelawreview.org/articles/114/114%20Penn%20St.%20L.%20Rev.%201257.pdf" target="_blank" rel="noopener noreferrer">pennstatelawreview.org (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>When compared to the German Zivilprozessordnung or the French Code de procédure civile, the Iqbal plausibility standard is remarkable in how much it requires plaintiffs to know before they have had any opportunity to investigate. Civil law systems traditionally allow a complaint to be far more skeletal, placing the burden of developing facts on the court. The American plausibility standard, viewed comparatively, is an outlier.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-8.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 8(a)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-9.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 9(b)</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#iqbal" target="_blank" rel="noopener noreferrer" class="pill pill-case">Iqbal</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#twombly" target="_blank" rel="noopener noreferrer" class="pill pill-case">Twombly</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION III — PERSONAL JURISDICTION
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-personal-juris">
+  <div class="section-part-number">Section III · Modules 6–9</div>
+  <h2>Personal Jurisdiction</h2>
+  <p class="part-desc">From <em>International Shoe</em> to <em>Ford Motor</em>: the tightening of minimum contacts doctrine.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 7</div>
+  <div class="entry-title">Linda Silberman &amp; Nathan D. Yaffe (updated Adam Stein), <em>Personal Jurisdiction and the Internet: Returning to First Principles</em></div>
+  <div class="entry-citation">56 <em>N.Y.U. J. Int'l L. &amp; Pol.</em> 371 (2024) · <a href="https://nyujilp.org/wp-content/uploads/2024/08/Stein_56-1-371-383.pdf" target="_blank" rel="noopener noreferrer">nyujilp.org (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The Supreme Court's decisions in Bristol-Myers Squibb and Ford Motor have significantly tightened the relatedness requirement for specific jurisdiction, moving away from a broad "but for" causation test toward an "arise out of or relate to" standard that demands a stronger nexus. These decisions, combined with Walden v. Fiore's defendant-focused framework, have reconfigured the personal jurisdiction landscape in ways that courts and practitioners are still working to understand.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-4.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 4(k)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-14th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">14th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#intl-shoe" target="_blank" rel="noopener noreferrer" class="pill pill-case">Int'l Shoe</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#walden" target="_blank" rel="noopener noreferrer" class="pill pill-case">Walden v. Fiore</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#bms" target="_blank" rel="noopener noreferrer" class="pill pill-case">Bristol-Myers</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#ford-motor" target="_blank" rel="noopener noreferrer" class="pill pill-case">Ford Motor</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 8</div>
+  <div class="entry-title">Adam N. Steinman, <em>Beyond Bristol-Myers: The Future of Main Street Litigation</em></div>
+  <div class="entry-citation">97 <em>N.Y.U. L. Rev.</em> 902 (2022) · <a href="https://www.nyulawreview.org/wp-content/uploads/2022/10/NYULawReview-Volume-97-Issue-4-Steinman-.pdf" target="_blank" rel="noopener noreferrer">nyulawreview.org (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Bristol-Myers Squibb's restriction on aggregated litigation for non-resident plaintiffs has profound implications beyond mass torts. It affects multi-plaintiff employment cases, consumer class actions, and any scenario where plaintiffs from multiple states seek to aggregate claims against a defendant in a single forum. The decision has accelerated a fragmentation of mass litigation that threatens both efficiency and access to justice.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-4.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 4(k)</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#bms" target="_blank" rel="noopener noreferrer" class="pill pill-case">Bristol-Myers</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#ford-motor" target="_blank" rel="noopener noreferrer" class="pill pill-case">Ford Motor</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#walden" target="_blank" rel="noopener noreferrer" class="pill pill-case">Walden</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 9</div>
+  <div class="entry-title">Linda J. Silberman, <em>A New State Registration Act: Legislating a Longer Arm for Personal Jurisdiction</em></div>
+  <div class="entry-citation">SSRN Working Paper (2020) · 
+    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3571811" target="_blank" rel="noopener noreferrer">papers.ssrn.com</a>
+    <span class="ssrn-note">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Free SSRN account required to download PDF
+    </span>
+  </div>
+  <blockquote class="entry-extract"><p>After Daimler AG v. Bauman effectively eliminated general jurisdiction over corporations except in their state of incorporation or principal place of business, and after Bristol-Myers restricted specific jurisdiction, there is a growing jurisdictional gap for plaintiffs injured by corporate defendants. A new uniform state registration act — requiring corporations registered to do business in a state to consent to jurisdiction there — could fill this gap without constitutional difficulty.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-4.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 4(k)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-14th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">14th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#bms" target="_blank" rel="noopener noreferrer" class="pill pill-case">Bristol-Myers</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#intl-shoe" target="_blank" rel="noopener noreferrer" class="pill pill-case">Int'l Shoe</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION IV — SUBJECT-MATTER JURISDICTION
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-smj">
+  <div class="section-part-number">Section IV · Modules 1–5</div>
+  <h2>Subject-Matter Jurisdiction</h2>
+  <p class="part-desc">Standing, diversity, federal question, supplemental, and removal jurisdiction.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 10</div>
+  <div class="entry-title">C.B. Whittaker, <em>The Invisible Circumstances of Notice: Due Process, Service, and Modern Procedure</em></div>
+  <div class="entry-citation">101 <em>N.C. L. Rev.</em> 855 (2023) · <a href="https://scholarship.law.unc.edu/cgi/viewcontent.cgi?article=6853&context=nclr" target="_blank" rel="noopener noreferrer">scholarship.law.unc.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The constitutional requirement of reasonably calculated notice established in Mullane v. Central Hanover Bank & Trust has proven remarkably durable, but its application to digital communications and social media service has exposed significant tensions in the doctrine. Courts are divided on whether electronic service meets the Mullane standard, and the question of what constitutes adequate notice in the digital age remains unresolved.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-4.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 4</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-5.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 5</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-14th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">14th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#lujan" target="_blank" rel="noopener noreferrer" class="pill pill-case">Lujan</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#spokeo" target="_blank" rel="noopener noreferrer" class="pill pill-case">Spokeo</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#transunion" target="_blank" rel="noopener noreferrer" class="pill pill-case">TransUnion</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION V — ERIE DOCTRINE
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-erie">
+  <div class="section-part-number">Section V · Modules 25–26</div>
+  <h2>Erie Doctrine &amp; Choice of Law</h2>
+  <p class="part-desc">The two-track Hanna framework, the Erie/REA intersection, and comparative reflections on federal/state law allocation.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 11</div>
+  <div class="entry-title">Federal Judicial Center, <em>Erie Railroad Co. v. Tompkins: A Historical Case Study</em></div>
+  <div class="entry-citation">FJC Cases That Shaped the Federal Courts (2020) · <a href="https://www.fjc.gov/history/cases/cases-that-shaped-the-federal-courts/erie-railroad-co-v-tompkins" target="_blank" rel="noopener noreferrer">fjc.gov</a></div>
+  <blockquote class="entry-extract"><p>Erie Railroad Co. v. Tompkins (1938) overruled Swift v. Tyson (1842) and its ninety-six-year legacy of federal general common law. Justice Brandeis declared it unconstitutional for federal courts to declare general common law rules in diversity cases. The decision had immediate and enduring consequences for how federal courts in diversity cases handle choice-of-law questions, and its implications continue to be worked out today.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-1652.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 1652 RDA</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-2072.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 2072 REA</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#erie" target="_blank" rel="noopener noreferrer" class="pill pill-case">Erie R.R.</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#guaranty-trust" target="_blank" rel="noopener noreferrer" class="pill pill-case">Guaranty Trust</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hanna" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hanna v. Plumer</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 12</div>
+  <div class="entry-title">Kevin M. Clermont, <em>The Unseen Track of Erie Railroad: Why History and Jurisprudence Suggest a Different Model of Erie Analysis</em></div>
+  <div class="entry-citation">SSRN Working Paper (2008), Cornell L. Fac. Scholarship ·
+    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1136143" target="_blank" rel="noopener noreferrer">papers.ssrn.com</a>
+    <span class="ssrn-note">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Free SSRN account required to download PDF
+    </span>
+  </div>
+  <blockquote class="entry-extract"><p>The standard Erie analysis moves too quickly from Hanna's two-track framework to the conclusion that a directly applicable Federal Rule governs. There is an underexplored intermediate track — cases where a Federal Rule exists but is not directly on point, requiring a more nuanced inquiry into whether federal practice or state law should govern the specific question at issue. Erie's jurisprudential underpinnings counsel greater attention to this intermediate category.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#erie" target="_blank" rel="noopener noreferrer" class="pill pill-case">Erie R.R.</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hanna" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hanna v. Plumer</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#byrd" target="_blank" rel="noopener noreferrer" class="pill pill-case">Byrd v. Blue Ridge</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#shady-grove" target="_blank" rel="noopener noreferrer" class="pill pill-case">Shady Grove</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#gasperini" target="_blank" rel="noopener noreferrer" class="pill pill-case">Gasperini</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#semtek" target="_blank" rel="noopener noreferrer" class="pill pill-case">Semtek</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION VI — DISCOVERY & PROPORTIONALITY
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-discovery">
+  <div class="section-part-number">Section VI · Modules 21–23</div>
+  <h2>Discovery &amp; Proportionality</h2>
+  <p class="part-desc">Work product, privilege, the 2015 proportionality amendment, ESI, and the regulatory function of discovery.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 13</div>
+  <div class="entry-title">Diego A. Zambrano, <em>Discovery as Regulation</em></div>
+  <div class="entry-citation">119 <em>Mich. L. Rev.</em> 71 (2020) · <a href="https://law.stanford.edu/wp-content/uploads/2019/10/SSRN-id3521586.pdf" target="_blank" rel="noopener noreferrer">law.stanford.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Discovery functions not merely as an information-gathering mechanism but as a regulatory instrument. The threat of burdensome discovery induces settlement and changes primary behavior, functioning as a de facto penalty on defendants independent of the merits of the underlying claim. The 2015 proportionality amendment to Rule 26(b)(1) was designed to address this dynamic, but its implementation has been uneven across districts and subject matters.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-26.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 26(b)(1)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-37.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 37</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hickman" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hickman v. Taylor</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#seattle-times" target="_blank" rel="noopener noreferrer" class="pill pill-case">Seattle Times</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 14</div>
+  <div class="entry-title"><em>Guidelines and Best Practices for Implementing the 2015 Discovery Amendments Concerning Proportionality</em> (Third Edition, 2021)</div>
+  <div class="entry-citation">Duke Law Center for Judicial Studies (2021) ·
+    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3827942" target="_blank" rel="noopener noreferrer">papers.ssrn.com</a>
+    <span class="ssrn-note">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Free SSRN account required to download PDF
+    </span>
+  </div>
+  <blockquote class="entry-extract"><p>The proportionality standard in Rule 26(b)(1) asks courts and parties to calibrate discovery to the needs of the case by weighing six factors: the importance of the issues, the amount in controversy, the parties' relative access to relevant information, the parties' resources, the importance of the discovery to resolving the issues, and whether the burden or expense of the proposed discovery outweighs its likely benefit. These Guidelines provide practical guidance for courts and practitioners navigating this multi-factor analysis.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-26.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 26(b)(1)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-16.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 16</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-37.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 37(e)</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION VII — CASE MANAGEMENT
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-case-mgmt">
+  <div class="section-part-number">Section VII · Module 24</div>
+  <h2>Case Management &amp; Judicial Role</h2>
+  <p class="part-desc">The transformation of the federal judge from passive arbiter to active manager under Rule 16.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 15</div>
+  <div class="entry-title">Judith Resnik, <em>Managerial Judges</em></div>
+  <div class="entry-citation">96 <em>Harv. L. Rev.</em> 374 (1982) · <a href="https://openyls.law.yale.edu/server/api/core/bitstreams/6c7136c1-c098-44cd-bed4-972a802b98e1/content" target="_blank" rel="noopener noreferrer">openyls.law.yale.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Judges have become managers, and the transformation is profound. Under the 1983 amendments to Rule 16, judges are expected to take an active role in shaping litigation from its earliest stages, setting discovery schedules, encouraging settlement, and narrowing issues for trial. This shift from the adversarial model — in which the judge is a neutral umpire — to the managerial model raises fundamental questions about judicial impartiality, the appearance of bias, and the meaning of due process.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-16.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 16</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-26.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 26</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION VIII — SUMMARY JUDGMENT
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-sj">
+  <div class="section-part-number">Section VIII · Module 28</div>
+  <h2>Summary Judgment</h2>
+  <p class="part-desc">The 1986 Celotex trilogy, the constitutionality of Rule 56, and the evolution of the JMOL standard.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 16</div>
+  <div class="entry-title">A. Simmons et al., <em>The Celotex Trilogy Revisited: Summary Judgment After Twenty Years</em></div>
+  <div class="entry-citation">1 <em>FAMU L. Rev.</em> 1 (2006) · <a href="https://commons.law.famu.edu/famulawreview/vol1/iss1/2/" target="_blank" rel="noopener noreferrer">commons.law.famu.edu</a></div>
+  <blockquote class="entry-extract"><p>Twenty years after the Supreme Court decided Celotex, Anderson, and Matsushita in a single Term, it is possible to assess the trilogy's impact. The three cases together shifted the summary judgment calculus dramatically in favor of defendants, particularly in complex litigation. Celotex eliminated the movant's burden to negate the nonmovant's case; Anderson incorporated the trial standard of proof into the summary judgment inquiry; Matsushita introduced economic plausibility as a threshold for jury consideration.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-56.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 56</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#celotex" target="_blank" rel="noopener noreferrer" class="pill pill-case">Celotex</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#anderson" target="_blank" rel="noopener noreferrer" class="pill pill-case">Anderson</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#matsushita" target="_blank" rel="noopener noreferrer" class="pill pill-case">Matsushita</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 17</div>
+  <div class="entry-title">Suja A. Thomas, <em>Why Summary Judgment Is Unconstitutional</em></div>
+  <div class="entry-citation">93 <em>Va. L. Rev.</em> 139 (2007) ·
+    <a href="https://www.virginialawreview.org/articles/why-summary-judgment-unconstitutional/" target="_blank" rel="noopener noreferrer">virginialawreview.org</a>
+    · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=886363" target="_blank" rel="noopener noreferrer">papers.ssrn.com</a>
+    <span class="ssrn-note">
+      <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Free SSRN account required to download PDF
+    </span>
+  </div>
+  <blockquote class="entry-extract"><p>The Seventh Amendment's Re-examination Clause provides that no fact tried by a jury shall be otherwise re-examined in any Court of the United States than according to the rules of the common law. Summary judgment, as interpreted since the 1986 trilogy, requires courts to assess the sufficiency of evidence — a function that the historical record shows was exclusively reserved to the jury at common law in 1791. The trilogy cases therefore constitute a violation of the Seventh Amendment.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-56.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 56</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-7th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">7th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#celotex" target="_blank" rel="noopener noreferrer" class="pill pill-case">Celotex</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#anderson" target="_blank" rel="noopener noreferrer" class="pill pill-case">Anderson</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#matsushita" target="_blank" rel="noopener noreferrer" class="pill pill-case">Matsushita</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION IX — JURY TRIAL RIGHTS
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-jury">
+  <div class="section-part-number">Section IX · Module 29</div>
+  <h2>Jury Trial Rights — Seventh Amendment</h2>
+  <p class="part-desc">The historical test, the Beacon Theatres framework, and the legal/equitable divide.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 18</div>
+  <div class="entry-title">Suja A. Thomas, <em>The Seventh Amendment, Modern Procedure, and the English Common Law</em></div>
+  <div class="entry-citation">82 <em>Wash. U. L. Rev.</em> 687 (2004) · <a href="https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=1377&context=law_lawreview" target="_blank" rel="noopener noreferrer">openscholarship.wustl.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The Supreme Court has long held that the Seventh Amendment's scope must be determined by reference to the common law of England as it existed in 1791. But the Court's application of this historical test has been inconsistent and, at times, result-oriented. Beacon Theatres and Dairy Queen correctly gave priority to legal claims over equitable claims when the two overlap, but the Court has been less faithful to history in other contexts, such as patent claim construction in Markman.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-38.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 38</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-7th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">7th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#beacon-theatres" target="_blank" rel="noopener noreferrer" class="pill pill-case">Beacon Theatres</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#dairy-queen" target="_blank" rel="noopener noreferrer" class="pill pill-case">Dairy Queen</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#markman" target="_blank" rel="noopener noreferrer" class="pill pill-case">Markman</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 19</div>
+  <div class="entry-title">U.S. Constitution Annotated — Seventh Amendment: Civil Jury Trial</div>
+  <div class="entry-citation">Constitution Annotated (CONAN), 2022 ed., at Art. VII · <a href="https://www.govinfo.gov/content/pkg/GPO-CONAN-2022/pdf/GPO-CONAN-2022-21.pdf" target="_blank" rel="noopener noreferrer">govinfo.gov (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The Seventh Amendment's Preservation Clause protects the right to jury trial in suits at common law where the value in controversy exceeds twenty dollars. The Supreme Court has construed this clause to require courts to look to the nature of the claim and remedy at English common law in 1791 to determine whether the right attaches. In cases of novel claims, courts employ a functional analysis comparing the claim to the most analogous historical action.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-38.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 38</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-7th.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">7th Amend.</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#beacon-theatres" target="_blank" rel="noopener noreferrer" class="pill pill-case">Beacon Theatres</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#markman" target="_blank" rel="noopener noreferrer" class="pill pill-case">Markman</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION X — CLASS ACTIONS
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-class">
+  <div class="section-part-number">Section X · Module 20</div>
+  <h2>Class Actions — Rule 23</h2>
+  <p class="part-desc">Certification standards, settlement classes, CAFA, and the governance challenge.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 20</div>
+  <div class="entry-title">Samuel Issacharoff &amp; George Loewenstein, <em>Second Thoughts About Summary Judgment</em></div>
+  <div class="entry-citation">100 <em>Yale L.J.</em> 73 (1990) · <a href="https://www.cmu.edu/dietrich/sds/docs/loewenstein/SecondThoughts.pdf" target="_blank" rel="noopener noreferrer">cmu.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The standard economic account of litigation assumes that parties settle when the expected value of settlement exceeds the expected value of continued litigation. But this account ignores the ways in which procedural asymmetries — differential discovery costs, differential access to evidence, and differential ability to absorb litigation risk — distort the settlement calculus. Summary judgment, as applied after the 1986 trilogy, functions as a device that systematically advantages well-resourced defendants at the expense of less-resourced plaintiffs.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-56.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 56</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-23.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 23</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#celotex" target="_blank" rel="noopener noreferrer" class="pill pill-case">Celotex</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#anderson" target="_blank" rel="noopener noreferrer" class="pill pill-case">Anderson</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 21</div>
+  <div class="entry-title">Samuel Issacharoff, <em>Governance and Legitimacy in the Law of Class Actions</em></div>
+  <div class="entry-citation">1999 <em>Sup. Ct. Rev.</em> 337 · <a href="https://ir.lawnet.fordham.edu/cgi/viewcontent.cgi?article=4904&context=flr" target="_blank" rel="noopener noreferrer">ir.lawnet.fordham.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Class actions present a fundamental governance problem: a large number of individuals with small individual claims must collectively act through a representative whose interests may diverge from theirs. Amchem Products v. Windsor and Ortiz v. Fibreboard addressed this problem in the settlement class action context, requiring that the procedural requirements of Rule 23 be satisfied even when a class is certified only for purposes of settlement. The result is a judicial supervision role that courts are ill-equipped to perform.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-23.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 23</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hansberry" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hansberry v. Lee</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#walmart" target="_blank" rel="noopener noreferrer" class="pill pill-case">Wal-Mart v. Dukes</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#comcast" target="_blank" rel="noopener noreferrer" class="pill pill-case">Comcast</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#shady-grove" target="_blank" rel="noopener noreferrer" class="pill pill-case">Shady Grove</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 22</div>
+  <div class="entry-title">Robert H. Klonoff, <em>The Decline of Class Actions</em></div>
+  <div class="entry-citation">90 <em>Wash. U. L. Rev.</em> 729 (2013) · <a href="https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=6004&context=law_lawreview" target="_blank" rel="noopener noreferrer">openscholarship.wustl.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Beginning with the Rehnquist Court and accelerating under the Roberts Court, class action jurisprudence has moved consistently in the direction of restricting certification. The combination of Twombly/Iqbal at the pleading stage, the tightening of Rule 23(a)(2) commonality in Wal-Mart Stores v. Dukes, and the requirement of damages-model alignment at the predominance stage in Comcast v. Behrend has made class certification substantially more difficult in all but the most straightforward cases.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-23.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 23</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#walmart" target="_blank" rel="noopener noreferrer" class="pill pill-case">Wal-Mart v. Dukes</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#comcast" target="_blank" rel="noopener noreferrer" class="pill pill-case">Comcast</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hansberry" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hansberry</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 23</div>
+  <div class="entry-title">Stephen B. Burbank, <em>The Class Action Fairness Act of 2005 in Historical Context: A Preliminary View</em></div>
+  <div class="entry-citation">156 <em>U. Pa. L. Rev.</em> 1439 (2008) · <a href="https://scholarship.law.upenn.edu/faculty_scholarship/1192/" target="_blank" rel="noopener noreferrer">scholarship.law.upenn.edu</a></div>
+  <blockquote class="entry-extract"><p>CAFA represented a major structural shift in the allocation of class action litigation between state and federal courts. By granting federal jurisdiction over class actions with aggregate claims exceeding five million dollars and minimal diversity, Congress federalized a substantial portion of mass tort and consumer class action litigation that had previously been litigated in state courts. The historical context makes clear that this was a deliberate policy choice designed to constrain plaintiff-friendly state court procedural rules.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-23.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 23</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-1332.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 1332(d) CAFA</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#shady-grove" target="_blank" rel="noopener noreferrer" class="pill pill-case">Shady Grove</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#exxon-mobil" target="_blank" rel="noopener noreferrer" class="pill pill-case">Exxon Mobil</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION XI — PRECLUSION
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-preclusion">
+  <div class="section-part-number">Section XI · Modules 33–34</div>
+  <h2>Claim &amp; Issue Preclusion</h2>
+  <p class="part-desc">Res judicata, collateral estoppel, non-mutual preclusion, and comparative dimensions.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 24</div>
+  <div class="entry-title">Kevin M. Clermont, <em>Res Judicata as Requisite for Justice</em></div>
+  <div class="entry-citation">68 <em>U. Pitt. L. Rev.</em> 301 (2006) · <a href="https://scholarship.law.cornell.edu/cgi/viewcontent.cgi?article=2599&context=facpub" target="_blank" rel="noopener noreferrer">scholarship.law.cornell.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>Res judicata is not merely a finality rule — it is a precondition for a just judicial system. Without it, parties would be subject to serial relitigation of the same claims, courts would be overwhelmed with redundant proceedings, and the very meaning of a final judgment would be undermined. The Restatement Second of Judgments' transactional test for claim preclusion reflects a sound policy choice: all claims arising from the same transaction should be resolved in a single proceeding, or not at all.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-41.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 41(b)</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-1738.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 1738 FFA&amp;C</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#parklane" target="_blank" rel="noopener noreferrer" class="pill pill-case">Parklane Hosiery</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#taylor" target="_blank" rel="noopener noreferrer" class="pill pill-case">Taylor v. Sturgell</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#semtek" target="_blank" rel="noopener noreferrer" class="pill pill-case">Semtek</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION XII — ACCESS TO COURTS
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-access">
+  <div class="section-part-number">Section XII · Modules 14, 21–23, 28</div>
+  <h2>Access to Courts &amp; Procedure Reform</h2>
+  <p class="part-desc">The access-to-justice implications of Twombly/Iqbal, discovery costs, and summary judgment.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 25</div>
+  <div class="entry-title">Kevin M. Clermont &amp; Theodore Eisenberg, <em>Do Case Outcomes Really Reveal Anything About the Legal System? Win Rates and Removal Jurisdiction</em></div>
+  <div class="entry-citation">83 <em>Cornell L. Rev.</em> 581 (1998) · <a href="https://scholarship.law.cornell.edu/cgi/viewcontent.cgi?article=2599&context=facpub" target="_blank" rel="noopener noreferrer">scholarship.law.cornell.edu</a></div>
+  <blockquote class="entry-extract"><p>Empirical analysis of federal court outcomes challenges several assumptions embedded in procedural doctrine. Plaintiffs who choose to remain in state court do not systematically lose at higher rates than those in federal court, suggesting that the removal statute's forum-allocation function operates on factors other than anticipated merits. The Erie doctrine's concern with forum-shopping inequity is thus at least partially empirically grounded.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-1441.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 1441 Removal</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-1652.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 1652 RDA</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#erie" target="_blank" rel="noopener noreferrer" class="pill pill-case">Erie R.R.</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hanna" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hanna v. Plumer</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="entry">
+  <div class="entry-number">Source 26</div>
+  <div class="entry-title">Charles Alan Wright &amp; Arthur R. Miller, <em>Federal Practice and Procedure</em> — Selected Foundational Articles</div>
+  <div class="entry-citation"><em>Mich. L. Rev.</em> Review Essay (1970) · <a href="https://repository.law.umich.edu/cgi/viewcontent.cgi?article=4562&context=mlr" target="_blank" rel="noopener noreferrer">repository.law.umich.edu (direct PDF)</a></div>
+  <blockquote class="entry-extract"><p>The Federal Rules of Civil Procedure were designed to be a unified, trans-substantive body of procedural law. The Reporter's insistence on simplicity and flexibility over technical precision was a conscious choice to trust judges and lawyers to work out the details in specific contexts. The body of doctrine that has grown up around the Rules over three decades confirms that this trust was largely well-placed, even if specific rules have generated unanticipated difficulties.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-1.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 1</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-8.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 8</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-frcp-56.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Rule 56</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION XIII — CONSTITUTIONALITY
+════════════════════════════════════════════════════════════ -->
+<div class="section-part" id="sec-constitutionality">
+  <div class="section-part-number">Section XIII · Modules 1, 25–26, 29</div>
+  <h2>Constitutionality of Federal Procedure</h2>
+  <p class="part-desc">Article III limits, the Rules Enabling Act, and constitutional constraints on rulemaking.</p>
+</div>
+
+<article class="entry">
+  <div class="entry-number">Source 27</div>
+  <div class="entry-title">Stephen B. Burbank, <em>The Rules Enabling Act of 1934</em></div>
+  <div class="entry-citation">130 <em>U. Pa. L. Rev.</em> 1015 (1982) · <a href="https://scholarship.law.upenn.edu/faculty_scholarship/1192/" target="_blank" rel="noopener noreferrer">scholarship.law.upenn.edu</a></div>
+  <blockquote class="entry-extract"><p>The Rules Enabling Act of 1934 delegated to the Supreme Court the power to prescribe general rules of practice and procedure for the federal courts, subject to the constraint that such rules shall not abridge, enlarge, or modify any substantive right. This constraint has proven enormously difficult to apply, as the line between substance and procedure is deeply contested. The history of the Act reveals that Congress was aware of this difficulty and deliberately left the boundary vague, entrusting its resolution to judicial judgment.</p></blockquote>
+  <div class="entry-links-row">
+    <div class="link-group">
+      <div class="link-group-label">Primary Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-usc28-2072.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">§ 2072 REA</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/provision-const-art3.html" target="_blank" rel="noopener noreferrer" class="pill pill-rule">Art. III</a>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-group-label">Key Cases</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#hanna" target="_blank" rel="noopener noreferrer" class="pill pill-case">Hanna v. Plumer</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#shady-grove" target="_blank" rel="noopener noreferrer" class="pill pill-case">Shady Grove</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#gasperini" target="_blank" rel="noopener noreferrer" class="pill pill-case">Gasperini</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#lujan" target="_blank" rel="noopener noreferrer" class="pill pill-case">Lujan</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#spokeo" target="_blank" rel="noopener noreferrer" class="pill pill-case">Spokeo</a>
+        <a href="https://vagabondo73.github.io/frcp-annotated-browser/content/landmark-cases.html#transunion" target="_blank" rel="noopener noreferrer" class="pill pill-case">TransUnion</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+</main>
+</div><!-- end .main-layout -->
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Theme toggle
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  function updateIcon(){
+    if(!t)return;
+    t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+    t.innerHTML=d==='dark'
+      ?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      :'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  updateIcon();
+  t&&t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);updateIcon()});
+})();
+
+// Back to top
+(function(){
+  const btn=document.getElementById('backToTop');
+  window.addEventListener('scroll',()=>{btn.classList.toggle('visible',scrollY>400)},{passive:true});
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+
+// TOC active state
+(function(){
+  const links=document.querySelectorAll('.toc-list a');
+  const sections=document.querySelectorAll('.section-part');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const active=document.querySelector('.toc-list a[href="#'+e.target.id+'"]');
+        if(active)active.classList.add('active');
+      }
+    });
+  },{rootMargin:'-10% 0px -80% 0px'});
+  sections.forEach(s=>obs.observe(s));
+})();
+</script>
+</body>
+</html>
